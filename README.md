@@ -1,4 +1,4 @@
-# Kotlin User Agents
+## Kotlin User Agents
 
 It's a Kotlin port of the [selwin](//github.com/selwin)'s [Python library](//github.com/selwin/python-user-agents) that provides an easy way to identify/detect devices like mobile phones, tablets and their capabilities by parsing user agent strings. The goal is to reliably detect whether:
 
@@ -7,7 +7,7 @@ It's a Kotlin port of the [selwin](//github.com/selwin)'s [Python library](//git
 
 <!-- todo: Enable block after release
 
-# Installation
+### Installation
 
 Before using the library you have to add the following block to dependencies:
 
@@ -21,7 +21,7 @@ Before using the library you have to add the following block to dependencies:
 
 -->
 
-# Usage
+### Usage
 
 Here is an example how to use this library:
 
@@ -56,12 +56,12 @@ ua.isPC()             // false
 ua.isBot()            // false
 ```
 
-# Changelog
+### Changelog
 
-## Version 0.1.0 <sub><sup>`2020-10-21`</sup></sub>
+#### Version 0.1.0 <sub><sup>`2020-10-21`</sup></sub>
 - Initial verstion (fully corresponds to the `python-user-agents` version 2.2.0)
 
-# License
+### License
 
 Copyright © 2020 Alex Chermenin  
 Licensed under the MIT License
