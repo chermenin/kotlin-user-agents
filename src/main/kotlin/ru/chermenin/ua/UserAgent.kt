@@ -14,7 +14,7 @@ class UserAgent private constructor(private val userAgentString: String) {
 
     private val client = parser.parse(userAgentString)
 
-    private val os = OS(
+    val os = OS(
         client.os.family,
         Version(
             client.os.major,
@@ -24,7 +24,7 @@ class UserAgent private constructor(private val userAgentString: String) {
         )
     )
 
-    private val browser = Browser(
+    val browser = Browser(
         client.userAgent.family,
         Version(
             client.userAgent.major,
@@ -33,7 +33,7 @@ class UserAgent private constructor(private val userAgentString: String) {
         )
     )
 
-    private val device = client.device.family
+    val device = if (isPC()) "PC" else client.device.family ?: ""
 
     private fun isAndroidTablet(): Boolean {
         return !userAgentString.contains("Mobile Safari") && browser.family != "Firefox Mobile"
@@ -43,14 +43,6 @@ class UserAgent private constructor(private val userAgentString: String) {
         return device.let {
             it.contains("Blackberry 95") || it.contains("Blackberry 99")
         }
-    }
-
-    fun getOS(): OS = os
-
-    fun getBrowser(): Browser = browser
-
-    fun getDevice(): String {
-        return if (isPC()) "PC" else device
     }
 
     fun isTablet(): Boolean {
@@ -105,6 +97,6 @@ class UserAgent private constructor(private val userAgentString: String) {
     }
 
     override fun toString(): String {
-        return "${getDevice()} / ${getOS()} / ${getBrowser()}"
+        return "$device / $os / $browser"
     }
 }
