@@ -8,11 +8,9 @@ It's a Kotlin port of the [selwin](//github.com/selwin)'s [Python library](//git
 - User agent is a mobile, tablet or PC based device
 - User agent has touch capabilities (has touch screen)
 
-<!-- todo: Enable block after release
-
 ### Installation
 
-Before using the library you have to add the following block to dependencies:
+Before using the library you have to add something similar to the following block to dependencies:
 
 ```xml
 <dependency>
@@ -21,8 +19,6 @@ Before using the library you have to add the following block to dependencies:
     <version>x.y.z</version>
 </dependency>
 ```
-
--->
 
 ### Usage
 
