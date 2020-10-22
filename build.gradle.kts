@@ -40,8 +40,8 @@ tasks {
     }
 }
 
-val nexusUsername: String by project
-val nexusPassword: String by project
+val nexusUsername: String? by project
+val nexusPassword: String? by project
 
 tasks.named<Upload>("uploadArchives") {
     repositories {
