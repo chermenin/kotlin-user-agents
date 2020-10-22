@@ -17,3 +17,5 @@ project/plugins/project/
 # Ignore Gradle build output directory
 build
 
+# Ignore Gradle properties
+gradle.properties
