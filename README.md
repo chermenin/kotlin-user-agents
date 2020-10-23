@@ -55,6 +55,39 @@ ua.isPC()             // false
 ua.isBot()            // false
 ```
 
+And the same if to use the library in Java:
+
+```java
+// iPhone's user agent string
+String uaString = "Mozilla/5.0 (iPhone; CPU iPhone OS 5_1 like Mac OS X) AppleWebKit/534.46 (KHTML, like Gecko) Version/5.1 Mobile/9B179 Safari/7534.48.3";
+UserAgent ua = UserAgent.Companion.parse(uaString);
+
+// Accessing user agent's browser attributes
+ua.getBrowser();                          // Browser(family=Mobile Safari, version=Version(major=5, minor=1, patch=null, patchMinor=null))
+ua.getBrowser().getFamily();              // "Mobile Safari"
+ua.getBrowser().getVersion();             // Version(major=5, minor=1, patch=null, patchMinor=null)
+ua.getBrowser().getVersion().toString();  // "5.1"
+
+// Accessing user agent's operating system properties
+ua.getOs();                          // OS(family=iOS, version=Version(major=5, minor=1, patch=null, patchMinor=null))
+ua.getOs().getFamily();              // "iOS"
+ua.getOs().getVersion();             // Version(major=5, minor=1, patch=null, patchMinor=null)
+ua.getOs().getVersion().toString();  // "5.1"
+
+// Getting user agent's device type
+ua.getDevice();  // "iPhone"
+
+// Viewing a pretty string version
+ua.toString();  // "iPhone / iOS 5.1 / Mobile Safari 5.1"
+
+// And a few other attributes
+ua.isMobile();        // true
+ua.isTablet();        // false
+ua.isTouchCapable();  // true
+ua.isPC();            // false
+ua.isBot();           // false
+```
+
 ### Changelog
 
 #### Version 0.1.0 <sub><sup>`2020-10-21`</sup></sub>
