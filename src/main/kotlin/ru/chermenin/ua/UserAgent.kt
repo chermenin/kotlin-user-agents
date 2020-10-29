@@ -99,4 +99,24 @@ class UserAgent private constructor(private val userAgentString: String) {
     override fun toString(): String {
         return "$device / $os / $browser"
     }
+
+    override fun equals(other: Any?): Boolean {
+        if (this === other) return true
+        if (javaClass != other?.javaClass) return false
+
+        other as UserAgent
+
+        if (os != other.os) return false
+        if (browser != other.browser) return false
+        if (device != other.device) return false
+
+        return true
+    }
+
+    override fun hashCode(): Int {
+        var result = os.hashCode()
+        result = 31 * result + browser.hashCode()
+        result = 31 * result + (device.hashCode())
+        return result
+    }
 }
