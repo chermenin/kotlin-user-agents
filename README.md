@@ -55,7 +55,7 @@ ua.isPC()             // false
 ua.isBot()            // false
 ```
 
-And the same if to use the library in Java:
+The same if to use the library in Java:
 
 ```java
 // iPhone's user agent string
@@ -88,10 +88,23 @@ ua.isPC();            // false
 ua.isBot();           // false
 ```
 
+#### Caching version
+
+If you need to parse a lot of user agent strings, and they can be repeated you can use the version with a cache:
+
+```kotlin
+val parser = CachedUserAgentParser(initialEntries = 1000, maxEntries = 3000)
+val ua = parser.parse(uaString)
+...
+```
+
 ### Changelog
 
+#### Version 0.2.0 <sub><sup>`2020-10-29`</sup></sub>
+- Added caching version of the parser
+
 #### Version 0.1.0 <sub><sup>`2020-10-21`</sup></sub>
-- Initial verstion (fully corresponds to the `python-user-agents` version 2.2.0)
+- Initial version (fully corresponds to the `python-user-agents` version 2.2.0)
 
 ### License
 
