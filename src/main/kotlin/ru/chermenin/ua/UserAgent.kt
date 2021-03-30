@@ -41,7 +41,9 @@ class UserAgent private constructor(private val userAgentString: String) {
 
     private fun isBlackberryTouchCapableDevice(): Boolean {
         return device.let {
-            it.contains("Blackberry 95") || it.contains("Blackberry 99")
+            it.toLowerCase().contains("blackberry 95") ||         // BB Storm devices
+                    it.toLowerCase().contains("blackberry 98") || // BB Torch devices
+                    it.toLowerCase().contains("blackberry 99")    // BB Bold Touch devices
         }
     }
 
