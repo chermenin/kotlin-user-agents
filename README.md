@@ -100,6 +100,9 @@ val ua = parser.parse(uaString)
 
 ### Changelog
 
+#### Version 0.2.1 <sub><sup>`2021-03-30`</sup></sub>
+- Fixes for BlackBerry devices
+
 #### Version 0.2.0 <sub><sup>`2020-10-29`</sup></sub>
 - Added caching version of the parser
 
