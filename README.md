@@ -1,6 +1,6 @@
 ## Kotlin User Agents
 
-[![Build Status](https://travis-ci.com/chermenin/kotlin-user-agents.svg?branch=master)](https://travis-ci.com/chermenin/kotlin-user-agents)
+[![GitHub Workflow Status](https://img.shields.io/github/workflow/status/chermenin/kotlin-user-agents/Java%20CI%20with%20Gradle)](https://github.com/chermenin/kotlin-user-agents/actions/workflows/gradle.yml)
 [![Maven Central](https://img.shields.io/maven-central/v/ru.chermenin/kotlin-user-agents)](https://search.maven.org/artifact/ru.chermenin/kotlin-user-agents)
 
 It's a Kotlin port of the [selwin](//github.com/selwin)'s [Python library](//github.com/selwin/python-user-agents) that provides an easy way to identify/detect devices like mobile phones, tablets and their capabilities by parsing user agent strings. The goal is to reliably detect whether:
