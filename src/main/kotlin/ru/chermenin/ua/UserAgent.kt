@@ -48,24 +48,27 @@ class UserAgent private constructor(private val userAgentString: String) {
     }
 
     fun isTablet(): Boolean {
-        return TABLET_DEVICE_FAMILIES.contains(device) ||
-                (os.family == "Android" && isAndroidTablet()) ||
-                (os.family == "Windows" && os.version.major?.startsWith("RT") ?: false) ||
-                (os.family == "Firefox OS" && !browser.family.contains("Mobile"))
+        return TABLET_DEVICE_FAMILIES.contains(device) || (
+                !(MOBILE_DEVICE_FAMILIES.contains(device)) && (
+                        (os.family == "Android" && isAndroidTablet()) ||
+                                (os.family == "Windows" && os.version.major?.startsWith("RT") ?: false) ||
+                                (os.family == "Firefox OS" && !browser.family.contains("Mobile"))
+                        )
+                )
     }
 
     fun isMobile(): Boolean {
-        return MOBILE_DEVICE_FAMILIES.contains(device) ||
-                MOBILE_BROWSER_FAMILIES.contains(browser.family) ||
-                ((os.family == "Android" || os.family == "Firefox OS") && !isTablet()) ||
-                (os.family == "BlackBerry OS" && device != "Blackberry Playbook") ||
-                MOBILE_OS_FAMILIES.contains(os.family) ||
-                userAgentString.contains("J2ME") ||
-                userAgentString.contains("MIDP") ||
-                userAgentString.contains("iPhone;") ||
-                userAgentString.contains("Googlebot-Mobile") ||
-                (device == "Spider" && browser.family.contains("Mobile")) ||
-                (userAgentString.contains("NokiaBrowser") && userAgentString.contains("Mobile"))
+        return !isTablet() && !isPC() && (
+                MOBILE_DEVICE_FAMILIES.contains(device) ||
+                        MOBILE_BROWSER_FAMILIES.contains(browser.family) ||
+                        MOBILE_OS_FAMILIES.contains(os.family) ||
+                        userAgentString.contains("J2ME") ||
+                        userAgentString.contains("MIDP") ||
+                        userAgentString.contains("iPhone;") ||
+                        userAgentString.contains("Googlebot-Mobile") ||
+                        (device == "Spider" && browser.family.contains("Mobile")) ||
+                        (userAgentString.contains("NokiaBrowser") && userAgentString.contains("Mobile"))
+                )
     }
 
     fun isTouchCapable(): Boolean {

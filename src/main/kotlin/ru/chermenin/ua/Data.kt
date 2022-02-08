@@ -52,13 +52,16 @@ val MOBILE_DEVICE_FAMILIES = listOf(
 )
 
 val MOBILE_OS_FAMILIES = listOf(
-    "Windows Phone",
-    "Windows Phone OS",
-    "Symbian OS",
+    "Android",
     "Bada",
+    "BlackBerry OS",
+    "Firefox OS",
+    "Maemo",
+    "Symbian OS",
     "Windows CE",
     "Windows Mobile",
-    "Maemo",
+    "Windows Phone",
+    "Windows Phone OS",
 )
 
 val MOBILE_BROWSER_FAMILIES = listOf(
@@ -88,9 +91,12 @@ val TOUCH_CAPABLE_OS_FAMILIES = listOf(
 )
 
 val TOUCH_CAPABLE_DEVICE_FAMILIES = listOf(
+    "iPad",
     "BlackBerry Playbook",
     "Blackberry Playbook",
+    "Generic Smartphone",
     "Kindle Fire",
+    "Kindle"
 )
 
 val EMAIL_PROGRAM_FAMILIES = listOf(
