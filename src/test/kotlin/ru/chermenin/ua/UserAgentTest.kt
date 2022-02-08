@@ -9,6 +9,7 @@ class UserAgentTest {
     // User agents strings
     private val iPhoneString = "Mozilla/5.0 (iPhone; CPU iPhone OS 5_1 like Mac OS X) AppleWebKit/534.46 (KHTML, like Gecko) Version/5.1 Mobile/9B179 Safari/7534.48.3"
     private val iPadString = "Mozilla/5.0(iPad; U; CPU iPhone OS 3_2 like Mac OS X; en-us) AppleWebKit/531.21.10 (KHTML, like Gecko) Version/4.0.4 Mobile/7B314 Safari/531.21.10"
+    private val iPadMobileChromeString = "Mozilla/5.0 (iPad; CPU OS 13_3 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) CriOS/86.0.4240.93 Mobile/15E148 Safari/604.1"
     private val galaxyTabString = "Mozilla/5.0 (Linux; U; Android 2.2; en-us; SCH-I800 Build/FROYO) AppleWebKit/533.1 (KHTML, like Gecko) Version/4.0 Mobile Safari/533.1"
     private val galaxyS3String = "Mozilla/5.0 (Linux; U; Android 4.0.4; en-gb; GT-I9300 Build/IMM76D) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Mobile Safari/534.30"
     private val kindleFireString = "Mozilla/5.0 (Macintosh; U; Intel Mac OS X 10_6_3; en-us; Silk/1.1.0-80) AppleWebKit/533.16 (KHTML, like Gecko) Version/5.0 Safari/533.16 Silk-Accelerated=true"
@@ -35,6 +36,7 @@ class UserAgentTest {
     // Parsed user agents
     private val iPhone = parse(iPhoneString)
     private val iPad = parse(iPadString)
+    private val iPadMobileChrome = parse(iPadMobileChromeString)
     private val galaxyTab = parse(galaxyTabString)
     private val galaxyS3 = parse(galaxyS3String)
     private val kindleFire = parse(kindleFireString)
@@ -62,6 +64,7 @@ class UserAgentTest {
     fun isTabletTest() {
         assertFalse(iPhone.isTablet())
         assertTrue(iPad.isTablet())
+        assertTrue(iPadMobileChrome.isTablet())
         assertFalse(galaxyTab.isTablet())
         assertFalse(galaxyS3.isTablet())
         assertTrue(kindleFire.isTablet())
@@ -87,6 +90,7 @@ class UserAgentTest {
     fun isMobileTest() {
         assertTrue(iPhone.isMobile())
         assertFalse(iPad.isMobile())
+        assertFalse(iPadMobileChrome.isMobile())
         assertTrue(galaxyTab.isMobile())
         assertTrue(galaxyS3.isMobile())
         assertFalse(kindleFire.isMobile())
@@ -112,6 +116,7 @@ class UserAgentTest {
     fun isTouchCapableTest() {
         assertTrue(iPhone.isTouchCapable())
         assertTrue(iPad.isTouchCapable())
+        assertTrue(iPadMobileChrome.isTouchCapable())
         assertTrue(galaxyTab.isTouchCapable())
         assertTrue(galaxyS3.isTouchCapable())
         assertTrue(kindleFire.isTouchCapable())
@@ -137,6 +142,7 @@ class UserAgentTest {
     fun isPCTest() {
         assertFalse(iPhone.isPC())
         assertFalse(iPad.isPC())
+        assertFalse(iPadMobileChrome.isPC())
         assertFalse(galaxyTab.isPC())
         assertFalse(galaxyS3.isPC())
         assertFalse(kindleFire.isPC())
@@ -163,6 +169,7 @@ class UserAgentTest {
     fun isBotTest() {
         assertFalse(iPhone.isBot())
         assertFalse(iPad.isBot())
+        assertFalse(iPadMobileChrome.isBot())
         assertFalse(galaxyTab.isBot())
         assertFalse(galaxyS3.isBot())
         assertFalse(kindleFire.isBot())
@@ -189,6 +196,7 @@ class UserAgentTest {
     fun isEmailClientTest() {
         assertFalse(iPhone.isEmailClient())
         assertFalse(iPad.isEmailClient())
+        assertFalse(iPadMobileChrome.isEmailClient())
         assertFalse(galaxyTab.isEmailClient())
         assertFalse(galaxyS3.isEmailClient())
         assertFalse(kindleFire.isEmailClient())
@@ -212,11 +220,12 @@ class UserAgentTest {
         assertTrue(thunderbird.isEmailClient())
         assertTrue(outlook.isEmailClient())
     }
-    
+
     @Test
     fun toStringTest() {
         assertEquals("iPhone / iOS 5.1 / Mobile Safari 5.1", iPhone.toString())
         assertEquals("iPad / iOS 3.2 / Mobile Safari 4.0.4", iPad.toString())
+        assertEquals("iPad / iOS 13.3 / Chrome Mobile iOS 86.0.4240", iPadMobileChrome.toString())
         assertEquals("Samsung SCH-I800 / Android 2.2 / Android 2.2", galaxyTab.toString())
         assertEquals("Samsung GT-I9300 / Android 4.0.4 / Android 4.0.4", galaxyS3.toString())
         assertEquals("Kindle / Android / Amazon Silk 1.1.0-80", kindleFire.toString())
