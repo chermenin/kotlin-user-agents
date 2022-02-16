@@ -6,7 +6,7 @@ plugins {
 }
 
 group = "ru.chermenin"
-version = "0.3.0-SNAPSHOT"
+version = "0.2.2"
 
 repositories {
     mavenCentral()
@@ -14,7 +14,7 @@ repositories {
 
 dependencies {
     implementation(kotlin("stdlib"))
-    implementation("com.github.ua-parser:uap-java:1.5.0")
+    implementation("com.github.ua-parser:uap-java:1.5.2")
 
     // Test dependencies
     testImplementation("org.jetbrains.kotlin:kotlin-test")
@@ -102,7 +102,7 @@ publishing {
     repositories {
         maven {
             name = "GitHubPackages"
-            url = uri("https://maven.pkg.github.com/OWNER/REPOSITORY")
+            url = uri("https://maven.pkg.github.com/chermenin/kotlin-user-agents")
             credentials {
                 username = project.findProperty("gpr.user") as String? ?: System.getenv("USERNAME")
                 password = project.findProperty("gpr.key") as String? ?: System.getenv("TOKEN")
